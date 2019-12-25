@@ -27,7 +27,7 @@ public class ControllerCliente {
 	
 	public ControllerCliente(ClienteGUI cliente, Banca banca) {
 		this.banca = banca;
-		iban=null;
+		iban="";
 		this.cliente=cliente;
 		pannelloOp=new PanelOp();
 		login = new Login();
@@ -67,16 +67,11 @@ public class ControllerCliente {
 		ActionListener act4 = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				clear();
-				try { //se l'iban non è stato inizializzato potrebbe generare un eccezione
+				if(banca.getConto(iban)!=null)
 					cliente.getLabelNan().setText(banca.getConto(iban).toString());
-				}catch(Exception ex) {
-					System.out.println("Iban nullo");
-				}
-				finally {
 				cliente.getContentPane().add(cliente.getLabelNan(), BorderLayout.CENTER);
 				cliente.getContentPane().revalidate();
 				cliente.getContentPane().repaint();
-				}
 			}
 		};
 		(cliente.getVisualizzaInfo()).addActionListener(act4);
@@ -94,15 +89,11 @@ public class ControllerCliente {
 		ActionListener act6 = new ActionListener() {
 			Conto c=null;
 			public void actionPerformed(ActionEvent e) {
-				try { //se l'iban non è stato inizializzato potrebbe generare un eccezione
 					c = banca.getConto(iban);
 					if(c instanceof ContoWeb) {
 						NewPass nuova = new NewPass((ContoWeb)c);
 						nuova.setVisible(true);
 					}
-				}catch(Exception ex) {
-						System.out.println("Iban nullo");
-				}
 					
 			}
 		};

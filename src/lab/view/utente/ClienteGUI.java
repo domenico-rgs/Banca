@@ -15,7 +15,7 @@ import javax.swing.WindowConstants;
 
 /**
  * Interfaccia grafica per le operazioni sui conti web effettuate da un cliente
- * permette di modificare CW, visualizzarne lo stato e effettuare operazioni su di esso
+ * permette di modificare Conto Web, visualizzarne lo stato e effettuare operazioni su di esso
  * @author Domenico
  *
  */
