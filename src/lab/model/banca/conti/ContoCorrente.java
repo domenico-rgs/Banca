@@ -4,7 +4,7 @@ package lab.model.banca.conti;
  * Classe per la gestione di un conto.
  * Permette di creare un conto corrente, depositare e prelevare
  * @author domenico
- * @version 2.0
+ * @version 3.0
  */
 
 public class ContoCorrente implements Conto, Comparable<Conto> {

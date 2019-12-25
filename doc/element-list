@@ -1,3 +1,7 @@
-lab.banca
-lab.conti
-lab.persona
+lab.controller.banchiere
+lab.controller.cliente
+lab.model.banca
+lab.model.banca.conti
+lab.model.persona
+lab.view.banchiere
+lab.view.utente

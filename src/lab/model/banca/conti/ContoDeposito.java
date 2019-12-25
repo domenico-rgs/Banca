@@ -3,7 +3,7 @@ package lab.model.banca.conti;
 /**
  * Il conto deposito è come il conto corrente ma è possibile solo effettuare depositi e non prelievi
  * @author Domenico
- * @version 1.0
+ * @version 3.0
  */
 public class ContoDeposito extends ContoCorrente {
 	

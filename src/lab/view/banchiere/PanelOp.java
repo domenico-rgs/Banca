@@ -8,8 +8,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * Pannello di supporto usato per la gestione delle operazioni su conto corrente
+ * (sia lato banchiere che lato cliente)
+ * @author Domenico
+ *
+ */
 @SuppressWarnings("serial")
 public class PanelOp extends JPanel{
+	//attributi usati per la parte di controllo
 	private JPanel pannelloOp;
 	private JTextField ammontare;
 	private JTextField iban;
@@ -56,7 +63,4 @@ public class PanelOp extends JPanel{
 	public JButton getConferma() {
 		return conferma;
 	}
-	
-	
-	
 }

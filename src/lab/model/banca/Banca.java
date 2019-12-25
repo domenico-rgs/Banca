@@ -13,7 +13,7 @@ import lab.model.persona.Persona;
  * Classe per la gestione della banca.
  * Permette di creare la banca, aggiungere un conto, effettuare operazioni sul conto e calcolare il totale dei saldi
  * @author domenico
- * @version 2.0
+ * @version 3.0
  *
  */
 
@@ -143,7 +143,7 @@ public class Banca {
 
 	/**
 	 * Metodo per la stampa di tutti i conti della banca con relativi dati cliente
-	 * @param banca banca in uso
+	 * @return ritorna la lista di tutti i conti in formato stringa
 	 */
 	public String stampaConti() {
 		ArrayList<Conto> conti = new ArrayList<Conto>(getConti().values());

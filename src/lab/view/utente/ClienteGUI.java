@@ -13,8 +13,15 @@ import javax.swing.JSeparator;
 import javax.swing.JTextPane;
 import javax.swing.WindowConstants;
 
+/**
+ * Interfaccia grafica per le operazioni sui conti web effettuate da un cliente
+ * permette di modificare CW, visualizzarne lo stato e effettuare operazioni su di esso
+ * @author Domenico
+ *
+ */
 @SuppressWarnings("serial")
 public class ClienteGUI extends JFrame {
+		//attributi usati per la parte di controllo
 		private JMenuItem login;
 		private JMenuItem esci;
 		private JMenuItem operazioni;
@@ -33,8 +40,9 @@ public class ClienteGUI extends JFrame {
 			setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 			setLayout(new BorderLayout());
 			
+			//menu superiore
 			JMenuBar menuCliente = new JMenuBar();
-			JMenu conto = new JMenu("Gestione Conto");
+			JMenu conto = new JMenu("Gestione Conto"); //voce principale 1
 			login = new JMenuItem("Login");
 			logout = new JMenuItem("Logout");
 			operazioni = new JMenuItem("Operazioni sul conto");
@@ -51,25 +59,24 @@ public class ClienteGUI extends JFrame {
 			conto.add(esci);
 			menuCliente.add(conto);
 			
-			JMenu info = new JMenu("Informazioni Conto");
+			JMenu info = new JMenu("Informazioni Conto"); //voce principale 2
 			visualizzaInfo = new JMenuItem("Visualizza Informazioni Conto");
 			info.add(visualizzaInfo);
 			menuCliente.add(info);
 			
 			getContentPane().add(menuCliente, BorderLayout.NORTH);
 			
+			//label usata per la visualizzazione delle informazioni sul conto
 			labelNan = new JTextPane();
 			labelNan.setEditable(false);
 			
-			JLabel label = new JLabel("Gestione Banca 3.0 - Interfaccia Cliente");
+			JLabel label = new JLabel("Banca 3.0 - Interfaccia Cliente");
 			label.setFont(new Font("Arial", Font.BOLD, 20));
 			label.setHorizontalAlignment(JLabel.CENTER);
 			add(label, BorderLayout.CENTER);
 			
 			validate();
-			
 		}
-		
 		
 		public JMenuItem getLogin() {
 			return login;
@@ -79,11 +86,9 @@ public class ClienteGUI extends JFrame {
 			return esci;
 		}
 
-
 		public JMenuItem getOperazioni() {
 			return operazioni;
 		}
-
 
 		public JMenuItem getVisualizzaInfo() {
 			return visualizzaInfo;
@@ -96,16 +101,8 @@ public class ClienteGUI extends JFrame {
 		public JMenuItem getLogout() {
 			return logout;
 		}
-		
-
 
 		public JMenuItem getCambio() {
 			return cambio;
-		}
-
-
-		public static void main(String[] args) {
-			ClienteGUI cliente = new ClienteGUI();
-			cliente.setVisible(true);
 		}
 	}

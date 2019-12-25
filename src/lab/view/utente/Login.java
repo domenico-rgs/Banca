@@ -10,10 +10,14 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+/**
+ * Pannello di supporto per la gestione del login
+ * @author Domenico
+ *
+ */
 @SuppressWarnings("serial")
 public class Login extends JPanel {
-	
-	private JPanel pannelloLogin;
+	private JPanel pannelloLogin; //pannello principale da restituire
 	private JButton conferma;
 	private JTextField input;
 	private JPasswordField input2;
@@ -38,10 +42,12 @@ public class Login extends JPanel {
 		pannelloLogin = new JPanel();
 		pannelloLogin.setLayout(new BorderLayout());
 		pannelloLogin.add(pannello,BorderLayout.NORTH);
+		
 		conferma = new JButton("Login");
 		conferma.setPreferredSize(new Dimension(50,30));
 		pannelloLogin.add(conferma, BorderLayout.CENTER);
-		info = new JLabel();
+		
+		info = new JLabel(); //label per le informazioni di servizio
 		info.setHorizontalAlignment(JLabel.CENTER);
 		info.setPreferredSize(new Dimension(300,150));
 		pannelloLogin.add(info, BorderLayout.SOUTH);

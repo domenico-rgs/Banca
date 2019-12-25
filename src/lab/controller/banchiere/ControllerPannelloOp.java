@@ -8,6 +8,11 @@ import java.awt.event.FocusListener;
 import lab.model.banca.Banca;
 import lab.view.banchiere.PanelOp;
 
+/**
+ * Controller per il pannello delle operazioni
+ * @author Domenico
+ *
+ */
 public class ControllerPannelloOp {
 	private PanelOp pannelloOp;
 	private Banca banca;
@@ -15,11 +20,12 @@ public class ControllerPannelloOp {
 	public ControllerPannelloOp(PanelOp panel, Banca banca) {
 		pannelloOp=panel;
 		this.banca=banca;
-		initComponent();
+		initComponent(); //inizializzazione componenti
 	}
 	
-	public void initComponent() {
+	private void initComponent() {
 		ActionListener act1 = new ActionListener() {
+			//effettua l'operazione alla pressione del tasto conferma
 				public void actionPerformed(ActionEvent e) {
 					String result;
 					if (banca.operazione(pannelloOp.getIban().getText().trim(),Double.parseDouble(pannelloOp.getAmmontare().getText().trim())))
@@ -33,6 +39,7 @@ public class ControllerPannelloOp {
 		pannelloOp.getConferma().addActionListener(act1);
 		
 		FocusListener act4 = new FocusListener() {
+			//focus listener per ripulita campi di testo
 			public void focusGained(FocusEvent e) {
 				pannelloOp.getAmmontare().setText("");
 			}

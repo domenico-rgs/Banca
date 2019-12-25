@@ -9,8 +9,14 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+/**
+ * Pannello di supporto per la gestione della creazione di un nuovo conto
+ * @author Domenico
+ *
+ */
 @SuppressWarnings("serial")
 public class NewContoPanel extends JPanel {
+	//usati per la parte di controllo
 	private JPanel pannelloNewConto;
 	private JTextField nome;
 	private JTextField cognome;
@@ -53,22 +59,17 @@ public class NewContoPanel extends JPanel {
 		save = new JButton("Apri Conto");
 		pannelloNewConto.add(save);
 		
-		info = new JLabel();
+		info = new JLabel(); //label usata per comunicare l'esito dell'apertura del conto
 		pannelloNewConto.add(info);
-
-
 	}
-
 	
 	public JTextField getNome() {
 		return nome;
 	}
 
-
 	public JTextField getCognome() {
 		return cognome;
 	}
-
 
 	public JTextField getCf() {
 		return cf;
@@ -102,5 +103,4 @@ public class NewContoPanel extends JPanel {
 	public JRadioButton getTipoWeb() {
 		return tipoWeb;
 	}
-	
 }

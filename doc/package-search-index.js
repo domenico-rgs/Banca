@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"lab.banca"},{"l":"lab.conti"},{"l":"lab.persona"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"lab.controller.banchiere"},{"l":"lab.controller.cliente"},{"l":"lab.model.banca"},{"l":"lab.model.banca.conti"},{"l":"lab.model.persona"},{"l":"lab.view.banchiere"},{"l":"lab.view.utente"}]

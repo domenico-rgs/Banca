@@ -3,7 +3,7 @@ package lab.model.persona;
 /**
  * Classe per la gestione dei proprietari di un conto
  * @author domenico
- * @version 1.0
+ * @version 3.0
  */
 
 public class Persona {

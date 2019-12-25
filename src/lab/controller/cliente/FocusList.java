@@ -5,6 +5,8 @@ import java.awt.event.FocusListener;
 
 import lab.view.utente.Login;
 
+//focus listener per la finestra di login
+//così che i campi vengano ripuliti al click del mouse
 public class FocusList {
 	private Login login;
 	
@@ -13,7 +15,7 @@ public class FocusList {
 		initComponents();
 	}
 	
-	public void initComponents() {
+	private void initComponents() {
 		FocusListener act1 = new FocusListener() {
 
 			@Override

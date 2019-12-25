@@ -17,6 +17,11 @@ import javax.swing.WindowConstants;
 
 import lab.model.banca.conti.ContoWeb;
 
+/**
+ * Finestra semi-indipendente per il cambio della password di un conto web
+ * @author Domenico
+ *
+ */
 @SuppressWarnings("serial")
 public class NewPass extends JFrame implements ActionListener{
 	private JPasswordField vecchiaPw;
@@ -46,6 +51,7 @@ public class NewPass extends JFrame implements ActionListener{
 		
 		JLabel vecchia = new JLabel("Vecchia password: ");
 		vecchiaPw = new JPasswordField("password");
+		//i focus listener cancellano il testo nel campo al click su di essi
 		vecchiaPw.addFocusListener(new FocusListener(){
 
 			@Override
@@ -54,9 +60,7 @@ public class NewPass extends JFrame implements ActionListener{
 			}
 
 			@Override
-			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
-				
+			public void focusLost(FocusEvent e) {				
 			}
 			
 		});
@@ -74,9 +78,7 @@ public class NewPass extends JFrame implements ActionListener{
 			}
 
 			@Override
-			public void focusLost(FocusEvent e) {
-				// TODO Auto-generated method stub
-				
+			public void focusLost(FocusEvent e) {				
 			}
 			
 		});
@@ -88,7 +90,8 @@ public class NewPass extends JFrame implements ActionListener{
 		JButton cambia = new JButton("Cambia password");
 		cambia.addActionListener(this);
 		pannello.add(cambia);
-		info = new JLabel();
+		
+		info = new JLabel(); //informazioni di servizio
 		pannello.add(info);
 		
 		add(pannello);
@@ -107,10 +110,14 @@ public class NewPass extends JFrame implements ActionListener{
 		return info;
 	}
 
-	@SuppressWarnings("deprecation")
+	/**
+	 * Listener per il tasto conferma
+	 * Prende le password dai relativi cambi e prova a cambiare la password riportando il relativo successo
+	 * o insuccesso nella label info
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(c.setPassword(vecchiaPw.getText(), nuovaPw.getText())) {
+		if(c.setPassword(new String(vecchiaPw.getPassword()), new String(nuovaPw.getPassword()))) {
 			info.setText("Password modificata con successo");
 			info.revalidate();
 		}else {

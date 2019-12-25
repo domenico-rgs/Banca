@@ -17,9 +17,15 @@ import lab.model.banca.Banca;
 import lab.model.banca.conti.Conto;
 import lab.model.banca.conti.ContoWeb;
 
+/** 
+ * Finestra semi-indipendente per la gestione del logout dal conto web
+ * (implementazione non mvc)
+ * @author Domenico
+ *
+ */
 @SuppressWarnings("serial")
 public class Logout extends JFrame implements ActionListener{
-	private Banca banca;
+	private Banca banca; //necessario per la ricerca del conto
 	private JTextField input;
 	private JLabel info;
 	
@@ -29,7 +35,7 @@ public class Logout extends JFrame implements ActionListener{
 	}
 	
 	public void Display() {
-		setSize(300,100);
+		setSize(300,150);
 		setTitle("Logout");
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -44,7 +50,7 @@ public class Logout extends JFrame implements ActionListener{
 		pannello.add(input);
 		JButton log = new JButton("Logout");
 		log.addActionListener(this);
-		info = new JLabel();
+		info = new JLabel(); //informazioni di servizio
 		
 		add(pannello, BorderLayout.NORTH);
 		add(log, BorderLayout.CENTER);
@@ -52,6 +58,9 @@ public class Logout extends JFrame implements ActionListener{
 
 	}
 
+	/**
+	 * Listener per il logout, cerca il conto e se presente effettua l'operazione di logout
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Conto c2 = banca.getConto(input.getText().trim());

@@ -3,7 +3,7 @@ package lab.model.banca.conti;
 /**
  * Il conto web è come il conto corrente ma è possibile effettuare operazioni se è stato effettuato il login
  * @author Domenico
- * @version 1.0
+ * @version 3.0
  */
 
 public class ContoWeb extends ContoCorrente implements LoginObject{
@@ -28,11 +28,8 @@ public class ContoWeb extends ContoCorrente implements LoginObject{
 	 * return true se è stato effettuato il login false altrimenti
 	 */
 	public boolean login(String password) {
-		if(this.password.equals(password)) {
+		if(this.password.equals(password))
 			isLogged=true;
-			System.out.println("Accesso effettuato!");
-		}else
-			System.out.println("Accesso non effettuato");
 		return isLogged;
 	}
 	
@@ -54,10 +51,8 @@ public class ContoWeb extends ContoCorrente implements LoginObject{
 	public boolean setPassword(String oldPassword, String newPassword) {
 		if(this.password.equals(oldPassword)) {
 			this.password=newPassword;
-			System.out.println("Password cambiata correttamente.");
 			return true;
 		}else {
-			System.out.println("La vecchia password non è corretta.");
 			return false;
 		}
 	}
@@ -76,7 +71,6 @@ public class ContoWeb extends ContoCorrente implements LoginObject{
 				return deposita(denaro);
 			}
 		}else {
-			System.out.println("Utente non connesso");
 			return false;
 		}
 	}
@@ -91,11 +85,13 @@ public class ContoWeb extends ContoCorrente implements LoginObject{
 
 	/**
 	 * Gestione del primo login
+	 * @param vecchiaPw vecchia password da sostituire
+	 * @param nuovaPw nuova password sostituta
 	 * @return false se non è il primo login e se la password viene cambiata correttamente
 	 */
-	public boolean isFirstLogin(String vecchiaPw, String NuovaPw) {
+	public boolean isFirstLogin(String vecchiaPw, String nuovaPw) {
 		if(firstLogin) {
-			setPassword(vecchiaPw, NuovaPw);
+			setPassword(vecchiaPw, nuovaPw);
 			firstLogin=false;
 		}
 		return false;

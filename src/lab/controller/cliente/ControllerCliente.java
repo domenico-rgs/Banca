@@ -13,6 +13,11 @@ import lab.view.utente.Login;
 import lab.view.utente.Logout;
 import lab.view.utente.NewPass;
 
+/**
+ * Controller per la gui del cliente
+ * @author Domenico
+ *
+ */
 public class ControllerCliente {
 	private ClienteGUI cliente;
 	private PanelOp pannelloOp;
@@ -26,13 +31,17 @@ public class ControllerCliente {
 		this.cliente=cliente;
 		pannelloOp=new PanelOp();
 		login = new Login();
-		initComponents();
+		initComponents(); //aggiunta listener
 	}
 	
-	public void initComponents() {
+	/**
+	 * Creo i vari listener da aggiungere agli item del menu
+	 * quelli che dovrebbero visualizzare un nuovo pannello eliminano inizialmente tutto quello che c'è nella posizione che dovrebbero occupare
+	 */
+	private void initComponents() {
 		ActionListener act1 = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cliente.remove((((BorderLayout)cliente.getContentPane().getLayout()).getLayoutComponent(BorderLayout.CENTER)));
+				clear();
 				cliente.getContentPane().add((pannelloOp).getPannelloOp(), BorderLayout.CENTER);
 				cliente.getContentPane().revalidate();
 				cliente.getContentPane().repaint();
@@ -57,8 +66,8 @@ public class ControllerCliente {
 		
 		ActionListener act4 = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cliente.remove((((BorderLayout)cliente.getContentPane().getLayout()).getLayoutComponent(BorderLayout.CENTER)));
-				try {
+				clear();
+				try { //se l'iban non è stato inizializzato potrebbe generare un eccezione
 					cliente.getLabelNan().setText(banca.getConto(iban).toString());
 				}catch(Exception ex) {
 					System.out.println("Iban nullo");
@@ -74,7 +83,7 @@ public class ControllerCliente {
 		
 		ActionListener act5 = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cliente.remove((((BorderLayout)cliente.getContentPane().getLayout()).getLayoutComponent(BorderLayout.CENTER)));
+				clear();
 				cliente.getContentPane().add(login.getPannello(), BorderLayout.CENTER);
 				cliente.getContentPane().revalidate();
 				cliente.getContentPane().repaint();
@@ -85,7 +94,7 @@ public class ControllerCliente {
 		ActionListener act6 = new ActionListener() {
 			Conto c=null;
 			public void actionPerformed(ActionEvent e) {
-				try {
+				try { //se l'iban non è stato inizializzato potrebbe generare un eccezione
 					c = banca.getConto(iban);
 					if(c instanceof ContoWeb) {
 						NewPass nuova = new NewPass((ContoWeb)c);
@@ -100,6 +109,10 @@ public class ControllerCliente {
 		(cliente.getCambio()).addActionListener(act6);
 	}
 
+	private void clear() {
+		cliente.remove((((BorderLayout)cliente.getContentPane().getLayout()).getLayoutComponent(BorderLayout.CENTER)));
+	}
+	
 	public void setIban(String iban) {
 		this.iban = iban;
 	}
